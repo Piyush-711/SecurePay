@@ -1,0 +1,38 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: SecurePay-API
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/securepay_db}
+    username: ${SPRING_DATASOURCE_USERNAME:securepay_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:securepay_secret}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+securepay:
+  jwt:
+    # 256-bit secret key for HMAC-SHA256
+    secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+    expiration-ms: 86400000 # 24 hours
+  rate-limiting:
+    default-requests-per-minute: 60
+  idempotency:
+    ttl-minutes: 1440 # 24 hours
+
+logging:
+  level:
+    com.securepay: INFO
+    org.springframework.security: INFO
