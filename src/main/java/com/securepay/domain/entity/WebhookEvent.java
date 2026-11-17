@@ -15,7 +15,7 @@ public class WebhookEvent {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "merchant_id")
     private Merchant merchant;
 
@@ -26,7 +26,7 @@ public class WebhookEvent {
     @Column(nullable = false, length = 50)
     private WebhookEventType eventType;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "payment_id")
     private PaymentTransaction paymentTransaction;
 

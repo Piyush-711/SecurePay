@@ -15,7 +15,7 @@ public class IdempotencyRecord {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "merchant_id", nullable = false)
     private Merchant merchant;
 

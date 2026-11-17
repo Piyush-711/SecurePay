@@ -34,3 +34,19 @@ build/
 ### OS Files ###
 .DS_Store
 Thumbs.db
+
+# Data, Local DB and Logs
+data/
+*.db
+*.mv.db
+*.trace.db
+*.log
+
+# Sensitive Interview Guide
+INTERVIEW_MASTER_GUIDE.md
+*interview*
+*Interview*
+
+# Temporary Files
+test_quick.ps1
+*.env
